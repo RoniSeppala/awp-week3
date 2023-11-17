@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node awpweek3/bin/www"
+    "start": "node awpweek3/bin/www.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,7 +14,7 @@
     "pug": "^3.0.2"
   },
   "description": "AWP-week3 by Roni Seppälä",
-  "main": "index.js",
+  "main": "www.js",
   "devDependencies": {},
   "author": "",
   "license": "ISC"
