@@ -26,27 +26,28 @@ sumbitButton.addEventListener('click', () => {
 searchButton.addEventListener('click', () => {
     const searchName = searchField.value;
 
-    fetch("http://localhost:3000/user/" + searchName).then(response => response.json())
+    fetch("http://localhost:3000/user/" + searchName).then(response => response.text())
     .then(data => {
         console.log(data)
 
         resutbox.innerHTML = ""
+        parsedData = JSON.parse(data)
 
-        if (data.response == "No user searched"){
+        if (data == "No user searched"){
             let responseElement = document.createElement("h3")
             responseElement.innerText = "No user searched"
             resutbox.appendChild(responseElement)
-        } else if (data.response == "Data not found"){
+        } else if (data == "User not found"){
             let responseElement = document.createElement("h3")
-            responseElement.innerText = "Data not found"
+            responseElement.innerText = "User not found"
             resutbox.appendChild(responseElement)
-        } else if (data.response == "Data found"){
+        } else if (parsedData.response == "Data found"){
             let responseElement = document.createElement("h3")
-            responseElement.innerText = data.data.name
+            responseElement.innerText = parsedData.data.name
             resutbox.appendChild(responseElement)
 
             let todoList = document.createElement("ul")
-            data.data.todos.forEach(element => {
+            parsedData.data.todos.forEach(element => {
                 let todo = document.createElement("li")
                 todo.innerText = element;
                 todoList.appendChild(todo);

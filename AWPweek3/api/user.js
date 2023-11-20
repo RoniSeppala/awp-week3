@@ -9,9 +9,7 @@ const responseJSON = {
 }
 
 router.get("/", (req,res) => {
-    responseJSON.response = "No user searched"
-    responseJSON.data = ""
-    res.send(responseJSON)
+    res.send("No user searched")
 })
 
 router.get("/:id", (req,res) => {
@@ -37,9 +35,7 @@ router.get("/:id", (req,res) => {
         if (!found){
             console.log("usernot found")
 
-            responseJSON.response = "Data not found"
-            responseJSON.data = ""
-            res.send(responseJSON)
+            res.send("User not found")
         }
 
     })
