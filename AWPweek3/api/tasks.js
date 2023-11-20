@@ -4,6 +4,15 @@ const fs = require("fs");
 
 todos = [];
 
+fs.readFile("./AWPweek3/data/tasks.json", "utf-8" , (error, data) => {
+    if (error){
+        console.log(error);
+        return;
+    }
+    todos = JSON.parse(data)
+    console.log("Data Loaded")
+})
+
 router.post("/",(req,res) =>{
 
     const data = req.body;
@@ -31,13 +40,22 @@ router.post("/",(req,res) =>{
         todos.push({name: data.name, todos: [data.todo]})
     }
 
-    console.log(todos)
-
     if (!savedEntry){
         res.send("User added")
     } else {
         res.send("Todo added")
     }
+
+    console.log(todos)
+
+    fs.writeFile("./AWPweek3/data/tasks.json", JSON.stringify(todos), error => {
+        if (error){
+            console.log(error);
+            return;
+        }
+
+        console.log("Data Saved")
+    })
 });
 
 module.exports = router;
