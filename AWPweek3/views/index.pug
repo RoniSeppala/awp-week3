@@ -2,4 +2,19 @@ extends layout
 
 block content
   h1= "My todos"
-  p Welcome to #{title}
+  input(
+    type = "text"
+    id = "input-name"
+    placeholder = "Name"
+  )
+  br
+  input(
+    type = "text"
+    id = "input-task"
+    placeholder = "Task"
+  )
+  br
+  button(
+    id="submit-data"
+  ) submit
+  h6(id="output")
