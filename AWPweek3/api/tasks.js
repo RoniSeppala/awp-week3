@@ -9,8 +9,10 @@ fs.readFile("./AWPweek3/data/tasks.json", "utf-8" , (error, data) => {
         console.log(error);
         return;
     }
-    todos = JSON.parse(data)
-    console.log("Data Loaded")
+    if (data){
+        todos = JSON.parse(data)
+        console.log("Data Loaded")
+    }
 })
 
 router.post("/",(req,res) =>{

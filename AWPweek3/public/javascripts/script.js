@@ -8,7 +8,7 @@ sumbitButton.addEventListener('click', () => {
     const name = inputName.value;
     const task = inputTask.value;
 
-    fetch("http://localhost:3000/api/tasks/", {
+    fetch("http://localhost:3000/todo", {
         method: "post",
         headers: {
             "Content-type": "application/json"
