@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.use("/api/tasks",require("./api/tasks.js"));
+app.use("/todo",require("./api/tasks.js"));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
