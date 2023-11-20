@@ -11,7 +11,7 @@ fs.readFile("./AWPweek3/data/tasks.json", "utf-8" , (error, data) => {
     }
     if (data){
         todos = JSON.parse(data)
-        console.log("Data Loaded")
+        console.log("Data Loaded,tasks.js")
     }
 })
 
@@ -48,15 +48,13 @@ router.post("/",(req,res) =>{
         res.send("Todo added")
     }
 
-    console.log(todos)
-
     fs.writeFile("./AWPweek3/data/tasks.json", JSON.stringify(todos), error => {
         if (error){
             console.log(error);
             return;
         }
 
-        console.log("Data Saved")
+        console.log("Data Saved,tasks.js")
     })
 });
 
